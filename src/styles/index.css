@@ -1,7 +1,12 @@
-@import 'https://rsms.me/inter/inter.css'; 
+@import url("https://rsms.me/inter/inter.css");
 @import url("https://dev-cats.github.io/code-snippets/JetBrainsMono.css");
 
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
+.animate-shake {
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
