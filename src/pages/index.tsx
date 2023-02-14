@@ -1,4 +1,4 @@
-import { Button, Card, Input, InputGroup, Text } from "@parssa/universal-ui";
+import { Button, Card, Checkbox, Input, InputGroup, Text } from "@parssa/universal-ui";
 import { useEffect, useRef, useState } from "react";
 import { ImSpinner3 } from "react-icons/im";
 
@@ -28,22 +28,24 @@ const StateVisualizer = ({ state, setState }: { state: any; setState?: (s: any) 
               });
             }}
           >
-            <Text
-              onClick={(e) => {
-                e.stopPropagation();
+            <Checkbox
+              onClick={(e) => e.stopPropagation()}
+              checked={task.completed}
+              className="mr-4"
+              onCheckedChange={(checked) => {
                 if (!setState) return;
-                setState({
-                  ...state,
-                  tasks: state.tasks.map((task) => {
-                    if (task.id === taskID) return { ...task, completed: !task.completed };
-                    return task;
+
+                setState((prev) => ({
+                  ...prev,
+                  tasks: prev.tasks.map((task) => {
+                    if (task.id === taskID) {
+                      return { ...task, completed: checked };
+                    }
+                    return { ...task };
                   })
-                });
+                }));
               }}
-              className="pr-6 cursor-pointer"
-            >
-              {task.completed ? "✅" : "❌"}
-            </Text>
+            />
             {task.icon && <Text className="mr-1.5">{task.icon}</Text>}
             <Text>{task.text}</Text>
             <div className="flex-grow" />
@@ -54,15 +56,25 @@ const StateVisualizer = ({ state, setState }: { state: any; setState?: (s: any) 
         );
       })}
       {state.visibleTaskIDs.length === 0 && (
-        <Card.Content className="text-center pt-size-2y pb-size-2y">
-          <Text className="text-theme-active/60">No tasks found</Text>
+        <Card.Content className="text-center pt-size-8y pb-size-8y">
+          <Text size='sm' className="text-theme-active/60">No tasks found.</Text>
           <div className="mt-size-2y">
             {state.tasks.length > 0 ? (
-              <Text className="text-theme-active/60">
+              <Text
+                className="text-theme-active/60 px-size-2x py-size-hy rounded-full bg-theme-active/20 w-max mx-auto"
+                theme="info"
+                size="sm"
+              >
                 Try saying &ldquo;Show all my tasks&rdquo;
               </Text>
             ) : (
-              <Text>Try saying &ldquo;Add a task&rdquo;</Text>
+              <Text
+                className="text-theme-active/60 px-size-2x py-size-hy rounded-full bg-theme-active/20 w-max mx-auto"
+                theme="info"
+                size="sm"
+              >
+                Try saying &ldquo;Add a task&rdquo;
+              </Text>
             )}
           </div>
         </Card.Content>
@@ -193,8 +205,9 @@ export default function Page() {
       .finally(() => setPending(false));
   };
   return (
-    <div className="container pt-24 md:pt-48">
+    <div className="container pt-24">
       <Text variant="h1">GPTodo</Text>
+      <Text className='text-theme-muted' variant='h4'>A task manager powered by GPT3, proof of concept.</Text>
       <div className="mt-size-4y">
         <div className="flex items-center gap-size-x">
           <InputGroup
@@ -218,7 +231,7 @@ export default function Page() {
           </InputGroup>
           {activePrompt && (
             <div
-              className="px-size-x py-size-y rounded bg-theme-active/40 w-max max-w-[24ch]"
+              className="px-size-x py-size-y rounded bg-theme-active/40 transition-all w-max max-w-[48ch]"
               data-theme="info"
             >
               <Text className="text-theme-active/90 italic truncate">

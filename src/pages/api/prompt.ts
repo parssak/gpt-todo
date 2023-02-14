@@ -39,7 +39,7 @@ OUTPUT:
   const completion = await openai.createCompletion({
     model: "text-davinci-003",
     prompt: FULL_PROMPT,
-    max_tokens: 1024,
+    max_tokens: 768,
     temperature: 0.7,
     top_p: 1,
     frequency_penalty: 0,

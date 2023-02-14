@@ -120,11 +120,12 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@parssa/universal-ui@^0.1.76":
-  version "0.1.76"
-  resolved "https://registry.yarnpkg.com/@parssa/universal-ui/-/universal-ui-0.1.76.tgz#a27451366d8cefb096b7cad3547bab8a671ddb41"
-  integrity sha512-jP1SZAiS0z3NnYeoWdjCO3BjqnVk0952NnfLCs2t4rk9XBDsdvM1Me/3/sSQi4nhmuZoXF0Z4VGCrX+F1oJLMA==
+"@parssa/universal-ui@^0.1.81":
+  version "0.1.81"
+  resolved "https://registry.yarnpkg.com/@parssa/universal-ui/-/universal-ui-0.1.81.tgz#1faf5daf978867143341f9a915c003a3812ee153"
+  integrity sha512-Xr7Zi7v8ChEcqtThWZnCCkOTDwHa8LVn55FbbziW1aLjuuiJ16OXbad3N5JxuW3GirI0moj9G7dU2V3yCEBHSw==
   dependencies:
+    "@radix-ui/react-checkbox" "^1.0.1"
     "@radix-ui/react-select" "^1.1.2"
     "@radix-ui/react-tooltip" "^1.0.2"
     tailwind-merge "^1.3.0"
@@ -150,6 +151,21 @@
   dependencies:
     "@babel/runtime" "^7.13.10"
     "@radix-ui/react-primitive" "1.0.1"
+
+"@radix-ui/react-checkbox@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@radix-ui/react-checkbox/-/react-checkbox-1.0.1.tgz#80cb38b1fd2cbe73f3ad0f4db8aebead0ab0617a"
+  integrity sha512-TisH0B8hWmYP3ONRduYCyN04rR9yLPIw/Rwyn1RoC1suSoGCa8Wn+YPdSSSarSszeIbcg3p2lBkDp2XXit4sZw==
+  dependencies:
+    "@babel/runtime" "^7.13.10"
+    "@radix-ui/primitive" "1.0.0"
+    "@radix-ui/react-compose-refs" "1.0.0"
+    "@radix-ui/react-context" "1.0.0"
+    "@radix-ui/react-presence" "1.0.0"
+    "@radix-ui/react-primitive" "1.0.1"
+    "@radix-ui/react-use-controllable-state" "1.0.0"
+    "@radix-ui/react-use-previous" "1.0.0"
+    "@radix-ui/react-use-size" "1.0.0"
 
 "@radix-ui/react-collection@1.0.1":
   version "1.0.1"
