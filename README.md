@@ -1,11 +1,14 @@
-# nextjs-tailwind-ts
+# GPTodo
 
-A starter template for `Next.js` with `TailwindCSS` and `TypeScript` preconfigured. 
+A todo list that uses OpenAI GPT3 to generate & manage tasks for you. (Proof of concept)
 
-Paths have also been set up to compile from `/src`, making component imports go from
-`../../../components/Nav` to `components/Nav`. :)
+## Installation
 
-To use this template, clone the repository, or click "Use this template" on Github. 
+To run it locally, get an OpenAI GPT3 API key, and create a `.env` with it as follows
 
-Run `yarn` to download all dependencies, and `yarn dev` to start the development
-environment. 
+```
+OPENAI_API_KEY=XXXX
+```
+
+And then run `yarn`, `yarn dev` and go to `localhost:3000`
+
